@@ -36,6 +36,7 @@ header {
 main {
     padding: 1em;
     text-align: center;
+    position: relative;
 }
 
 /* navigation */
@@ -120,24 +121,28 @@ ul li a {
 }
 
 .plant-container {
+    position: relative;
     overflow: hidden;
+    height: 200px;
 }
 
 .plant {
-    bottom: 100px;
-    right: -200px;
+    position: absolute;
     z-index: -1;
-    position: fixed;
-    width: 350px;
+    top: 0;
+    left: 50%;
+    width: 350px; 
 }
 
 .fern {
+    position: absolute;
     z-index: -1;
-    position: fixed;
-    width: 300px;
-    top: 100px;
+    height: 50vh;
+    width: 250px;
+    top: 0;
     left: 0;
-    filter: invert(85%) sepia(23%) saturate(458%) hue-rotate(97deg) brightness(90%) contrast(87%);
+    right: 0;
+    opacity: 0.1;
 }
 
 /* ================
@@ -161,8 +166,13 @@ a {
     text-decoration: none;
 }
 
+/* ================
+   MEDIA QUERIES
+=================== */
 
+@media (min-width: 500px) {
 
+}
 
 /*
 
