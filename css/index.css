@@ -29,26 +29,19 @@ header {
     font-size: 1.5rem;
 }
 
-.menu {
-    width: 1.5em;
-    cursor: pointer;
-}
-
-.exit img {
-    position: absolute;
-    top: .25em;
-    right: .25em;
-    width: 3em;
-    cursor: pointer;
-}
-
 .filter-white {
     filter: invert(100%) sepia(13%) saturate(2%) hue-rotate(216deg) brightness(111%) contrast(101%);
+}
+
+main {
+    padding: 1em;
+    text-align: center;
 }
 
 /* navigation */
 
 nav {
+    visibility: hidden;
     position: fixed;
     padding-left: .3em;
     top: 0;
@@ -58,9 +51,32 @@ nav {
     background: #5E3F12;
     height: 100vh;
     z-index: 1;
+    transform: translateX(50%);
+    opacity: 0;
+    transition: all 300ms;
+    /* display:none; */
 }
 
-ul#nav {
+.menu {
+    width: 1.5em;
+    cursor: pointer;
+}
+
+.exit {
+    position: fixed;
+    top: .25em;
+    right: .25em;
+    width: 3em;
+    cursor: pointer;
+}
+
+.open-nav {
+    visibility: unset;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+ul {
     text-transform: uppercase;
     margin-top: 3.7em;
     margin-left: 0;
@@ -78,16 +94,66 @@ ul li a {
     font-size: 1.4rem;
     margin-left: -2em;
     margin-bottom: .25em;
-    background: linear-gradient(90deg, rgba(120,86,35,1) 4%, rgba(94,63,18,1) 4%, rgba(61,44,20,1) 2%);
+    background: linear-gradient(90deg, rgba(120,86,35,1) 4%, rgba(61,44,20,1) 4%);
 }
 
+/* Buttons */
 
+.btn-container {
+    width: 90%;
+    margin: 0 auto;
+}
 
+.cta {
+    display: block;
+    padding: .75em;
+    background: #47946E;
+    border-radius: 3em;
+    margin-bottom: 1em;
+    white-space: nowrap;
+}
 
+.outline {
+    background: none;
+    border: 1px solid #7A4900; 
+    color: #000;
+}
+
+.plant-container {
+    overflow: hidden;
+}
+
+.plant {
+    top: 500px;
+    left: 200px;
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+}
+
+.fern {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    filter: invert(85%) sepia(23%) saturate(458%) hue-rotate(97deg) brightness(90%) contrast(87%);
+}
 
 /* ================
    TYPOGRAPHY
 =================== */
+
+h1 {
+    margin-top: 3em;
+    font-size: 1.5rem;
+}
+
+p {
+    line-height: 1.5em;
+    width: 90%;
+    margin: 0 auto 2em;
+}
 
 a {
     color: #FFF;
