@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap');
 
+/* ================
+   GENERAL
+=================== */
+
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -12,6 +20,31 @@ body {
     font-size: 1rem;
 }
 
+.filter-white {
+    filter: invert(100%) sepia(13%) saturate(2%) hue-rotate(216deg) brightness(111%) contrast(101%);
+}
+
+/* ================
+   TYPOGRAPHY
+=================== */
+
+h1 {
+    margin-top: 3em;
+    font-size: 1.5rem;
+}
+
+p {
+    line-height: 1.5em;
+    width: 90%;
+    margin: 0 auto 2em;
+}
+
+a {
+    color: #FFF;
+    font-weight: 700;
+    text-decoration: none;
+}
+
 /* ================
    LAYOUT
 =================== */
@@ -20,23 +53,30 @@ body {
 
 header {
     display: flex;
-    padding: 1em;
     justify-content: space-between;
     background: #7A4900;
+    overflow: hidden;
 }
 
-.logo {
-    font-size: 1.5rem;
+a.logo {
+    font-size: 1.25em;
+    padding: .5em;
 }
 
-.filter-white {
-    filter: invert(100%) sepia(13%) saturate(2%) hue-rotate(216deg) brightness(111%) contrast(101%);
+.menu {
+    width: 2.5em;
+    cursor: pointer;
+    padding: .5em;
 }
 
-main {
-    padding: 1em;
-    text-align: center;
-    position: relative;
+.exit {
+    position: fixed;
+    top: .1em;
+    right: .05em;
+    width: 2.5em;
+    padding: 0;
+    background: none;
+    cursor: pointer;
 }
 
 /* navigation */
@@ -44,7 +84,6 @@ main {
 nav {
     visibility: hidden;
     position: fixed;
-    padding-left: .3em;
     top: 0;
     right: 0;
     margin: 0; 
@@ -55,20 +94,6 @@ nav {
     transform: translateX(50%);
     opacity: 0;
     transition: all 300ms;
-    /* display:none; */
-}
-
-.menu {
-    width: 1.5em;
-    cursor: pointer;
-}
-
-.exit {
-    position: fixed;
-    top: .25em;
-    right: .25em;
-    width: 3em;
-    cursor: pointer;
 }
 
 .open-nav {
@@ -78,32 +103,34 @@ nav {
 }
 
 ul {
-    text-transform: uppercase;
-    margin-top: 3.7em;
-    margin-left: 0;
+    margin-top: 3.5em;
+    padding: 0;
     list-style: none;
 }
 
-/* #47946E */
+
+li a {
+    display: block;
+    margin-bottom: .2em;
+    padding: .75em 1em;
+    background: linear-gradient(90deg, rgba(120,86,35,1) 4%, rgba(61,44,20,1) 4%);
+    font-size: 1.25rem;
+}
+
 .active {
     color: #47946E;
 }
 
-ul li a {
+
+/* Main */
+
+main {
     padding: 1em;
-    display: block;
-    font-size: 1.4rem;
-    margin-left: -2em;
-    margin-bottom: .25em;
-    background: linear-gradient(90deg, rgba(120,86,35,1) 4%, rgba(61,44,20,1) 4%);
+    text-align: center;
+    position: relative;
 }
 
 /* Buttons */
-
-.btn-container {
-    width: 90%;
-    margin: 0 auto;
-}
 
 .cta {
     display: block;
@@ -130,14 +157,13 @@ ul li a {
     position: absolute;
     z-index: -1;
     top: 0;
-    left: 50%;
-    width: 350px; 
+    right: -200px;
+    width: 350px;
 }
 
 .fern {
     position: absolute;
     z-index: -1;
-    height: 50vh;
     width: 250px;
     top: 0;
     left: 0;
@@ -146,33 +172,82 @@ ul li a {
 }
 
 /* ================
-   TYPOGRAPHY
-=================== */
-
-h1 {
-    margin-top: 3em;
-    font-size: 1.5rem;
-}
-
-p {
-    line-height: 1.5em;
-    width: 90%;
-    margin: 0 auto 2em;
-}
-
-a {
-    color: #FFF;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* ================
    MEDIA QUERIES
 =================== */
 
-@media (min-width: 500px) {
+@media (min-width: 460px) {
+    header {
+        display: flex;
+        overflow: visible;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+    .menu,
+    .exit {
+        display: none;
+    }
+
+    nav {
+        visibility: unset;
+        position: unset;
+        background: none;
+        height: auto;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    ul {
+        margin: auto;
+        display: flex;
+        float: right;
+    }
+    
+    
+    li a {
+        position: relative;
+        margin-bottom: auto;
+        padding: .625em;
+        background: none;
+        font-size: 1rem;
+    }
+
+    li a:hover::after, 
+    li a:focus::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        height: 5px;
+        width: 50%;
+        background: #53664b;
+    }
+
+
+    .btn-container {
+        display: flex;
+        width: 300px;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+
+    .cta {
+        padding: .5em 1.25em;
+    }
 }
+
+@media (min-width: 630px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+}
+
+
 
 /*
 
